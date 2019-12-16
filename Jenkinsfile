@@ -8,15 +8,15 @@ environment {
 
         stage('Clone Repo') {
           steps {
-            sh 'rm -rf dockertest1'
-            sh 'git clone https://github.com/ravimedi/dockertest1.git'
+            sh 'rm -rf dockertest2'
+            sh 'git clone https://github.com/ravimedi/dockertest2.git'
             }
         }
 
         stage('Build Docker Image') {
           steps {
-            sh 'cd /var/lib/jenkins/workspace/pipeline2/dockertest1'
-            sh 'cp  /var/lib/jenkins/workspace/pipeline2/dockertest1/* /var/lib/jenkins/workspace/pipeline2'
+            sh 'cd /var/lib/jenkins/workspace/pipeline2/dockertest2'
+            sh 'cp  /var/lib/jenkins/workspace/pipeline2/dockertest2/* /var/lib/jenkins/workspace/pipeline2'
             sh 'docker build -t ravidocker438/pipelinetestprod:${BUILD_NUMBER} .'
             }
         }
