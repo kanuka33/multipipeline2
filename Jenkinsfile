@@ -1,6 +1,6 @@
 pipeline {
 environment {
-    registry = "ravidocker438/featureapp1"
+    registry = "ravidocker438/fetureapp2"
     registryCredential = 'dockerhub'
 	}
     agent any
@@ -16,20 +16,20 @@ environment {
         stage('Build Docker Image') {
           steps {
             
-            sh 'docker build -t ravidocker438/featureapp1:${BUILD_NUMBER} .'
+            sh 'docker build -t ravidocker438/fetureapp2:${BUILD_NUMBER} .'
             }
         }
 
         stage('Push Image to Docker Hub') {
           steps {
-           sh    'docker push ravidocker438/featureapp1:${BUILD_NUMBER}'
+           sh    'docker push ravidocker438/fetureapp2:${BUILD_NUMBER}'
            }
         }
 
         stage('Deploy to Docker Host') {
           steps {
-            sh    'docker -H tcp://192.168.10.197:2375 stop featureapp1 || true'
-            sh    'docker -H tcp://192.168.10.197:2375 run --rm -dit --name featureapp1 --hostname featureapp1 -p 8000:80 ravidocker438/featureapp1:${BUILD_NUMBER}'
+            sh    'docker -H tcp://192.168.10.197:2375 stop fetureapp2 || true'
+            sh    'docker -H tcp://192.168.10.197:2375 run --rm -dit --name fetureapp2 --hostname fetureapp2 -p 8000:80 ravidocker438/fetureapp2:${BUILD_NUMBER}'
             }
         }
 
