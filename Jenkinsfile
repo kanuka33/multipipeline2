@@ -8,15 +8,15 @@ environment {
 
         stage('Clone Repo') {
           steps {
-            sh 'rm -rf mulitipipeline2'
-            sh 'git clone https://github.com/ravimedi/mulitipipeline2.git'
+            sh 'rm -rf multipipeline2'
+            sh 'git clone https://github.com/ravimedi/multipipeline2.git'
             }
         }
 
         stage('Build Docker Image') {
           steps {
-            sh 'cd /var/lib/jenkins/workspace/pipeline2/mulitipipeline2'
-            sh 'cp  /var/lib/jenkins/workspace/pipeline2/mulitipipeline2/* /var/lib/jenkins/workspace/pipeline2'
+            sh 'cd /var/lib/jenkins/workspace/pipeline2/multipipeline2'
+            sh 'cp  /var/lib/jenkins/workspace/pipeline2/multipipeline2/* /var/lib/jenkins/workspace/pipeline2'
             sh 'docker build -t ravidocker438/pipelinetestprod:${BUILD_NUMBER} .'
             }
         }
@@ -37,7 +37,7 @@ environment {
         stage('Check WebApp Rechability') {
           steps {
           sh 'sleep 10s'
-          sh ' curl http://192.168.10.197:8000'
+          sh ' curl http://192.168.10.197:11000'
           }
         }
 
