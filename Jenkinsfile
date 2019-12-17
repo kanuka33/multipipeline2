@@ -30,7 +30,7 @@ environment {
         stage('Deploy to Docker Host') {
           steps {
             sh    'docker -H tcp://192.168.10.197:2375 stop featureapp1 || true'
-            sh    'docker -H tcp://192.168.10.197:2375 run --rm -dit --name featureapp1 --hostname featureapp1 -p 8000:80 ravidocker438/featureapp1:${BUILD_NUMBER}'
+            sh    'docker -H tcp://192.168.10.197:2375 run --rm -dit --name featureapp1 --hostname featureapp1 -p 9000:80 ravidocker438/featureapp1:${BUILD_NUMBER}'
             }
         }
 
