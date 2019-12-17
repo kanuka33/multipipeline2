@@ -37,7 +37,7 @@ environment {
         stage('Check WebApp Rechability') {
           steps {
           sh 'sleep 10s'
-          sh ' curl http://192.168.10.197:8000'
+          sh ' curl http://192.168.10.197:9000'
           }
         }
 
