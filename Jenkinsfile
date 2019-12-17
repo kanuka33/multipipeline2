@@ -15,8 +15,8 @@ environment {
 
         stage('Build Docker Image') {
           steps {
-            sh 'cd /var/lib/jenkins/workspace/pipeline2/multipipeline2'
-            sh 'cp  /var/lib/jenkins/workspace/pipeline2/multipipeline2/* /var/lib/jenkins/workspace/pipeline2'
+            sh 'ls -la'
+            sh 'pwd'
             sh 'docker build -t ravidocker438/pipelinetestprod:${BUILD_NUMBER} .'
             }
         }
