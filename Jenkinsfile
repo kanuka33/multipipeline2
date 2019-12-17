@@ -15,7 +15,8 @@ environment {
 
         stage('Build Docker Image') {
           steps {
-            
+            sh 'ls -la '
+	    sh 'pwd'  
             sh 'docker build -t ravidocker438/featureapp1:${BUILD_NUMBER} .'
             }
         }
